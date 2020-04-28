@@ -1,0 +1,108 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: content-box;
+}
+
+h1 {
+    font-size: 4em;
+    left: 10px;
+}
+
+h2 {
+    font-size: 3em;
+    padding: 5px;
+    left: 2em;
+    color: white;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+p {
+    color: white;
+}
+
+body {
+	display: grid;
+	grid-template: "head button"
+					"main main" / 1fr 1fr;
+}
+
+button#randomize-button {
+	margin: calc(2em/3) calc(20em/3);
+	border-radius: 6px;
+	background-color: rgb(5, 5, 109);
+	border: 1px solid black;
+	color: white;
+	cursor: pointer;
+	font-size: 1.5em;
+}
+
+button#randomize-button:hover {
+	background-color: rgb(20, 20, 100);
+}
+
+div#main {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-area: main
+}
+
+div#main div#list {
+	background-color: rgb(38, 38, 134);
+	height: 92vh;
+	overflow-y: scroll;
+}
+
+div#main div#list ul {
+	padding: 1em;
+}
+
+div#main div#list ul li {
+	display: grid;
+	grid-template:  "img name"
+	"img description" / 2fr 22fr;
+	cursor: pointer;
+	margin: 0.4em 1em;
+	background-color: rgb(5, 5, 109);
+	border: 1.5px solid black;
+	padding: 0.2em;
+	border-radius: 12px;
+}
+
+div#main div#list ul li:hover {
+	background-color: rgb(20, 20, 100);
+}
+
+div#main div#list ul li img {
+	grid-area: img;
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+}
+
+div#main div#list ul li h3 {
+    grid-area: name;
+    color: white;
+}
+
+div#main div#list ul li p {
+	grid-area: description;
+}
+
+div#main div#chosen-civ {
+	background-color: rgb(38, 38, 134);
+	border-left: 2px solid black;
+	padding: 1em;
+}
+
+div#main div#chosen-civ img {
+	height: 200px;
+	width: 200px;
+}
+
+div#main div#chosen-civ p {
+	margin: 0.5em;
+}
