@@ -1,4 +1,7 @@
 const civs = [];
+const ignoreCivs = [];
+
+// Yields
 const science = 'https://vignette.wikia.nocookie.net/civilization/images/7/79/Civ6Science.png/';
 const culture = 'https://vignette.wikia.nocookie.net/civilization/images/2/2a/Civ6Culture.png/';
 const gold = 'https://vignette.wikia.nocookie.net/civilization/images/b/bc/Civ6Gold.png/';
@@ -15,23 +18,23 @@ const bombard = 'https://vignette.wikia.nocookie.net/civilization/images/5/59/Bo
 const antiair = 'https://vignette.wikia.nocookie.net/civilization/images/2/28/Anti-Air_Strength_%28Civ6%29.png/';
 const religious = 'https://vignette.wikia.nocookie.net/civilization/images/2/22/ReligiousStrength6.png/';
 const range = 'https://vignette.wikia.nocookie.net/civilization/images/9/9e/Civ6Range.png/';
-const trade = 'https://vignette.wikia.nocookie.net/civilization/images/0/0f/TradeRoute6.png/revision/latest/scale-to-width-down/18?cb=20200427172157';
-const visibility = 'https://vignette.wikia.nocookie.net/civilization/images/c/ce/DiplomaticVisibility6.png/revision/latest?cb=20161230001051';
-const tradePost = 'https://vignette.wikia.nocookie.net/civilization/images/7/72/Trading_Post_%28Civ6%29.png/revision/latest/scale-to-width-down/18?cb=20200429095829';
-const population = 'https://vignette.wikia.nocookie.net/civilization/images/f/f8/Citizen6.png/revision/latest/scale-to-width-down/18?cb=20200427170416';
-const relic = 'https://vignette.wikia.nocookie.net/civilization/images/c/c5/Relic6.png/revision/latest/scale-to-width-down/18?cb=20200429101740';
-const favor = 'https://vignette.wikia.nocookie.net/civilization/images/c/c4/Diplomatic_Favor_%28Civ6%29.png/revision/latest/scale-to-width-down/16?cb=20190217195551';
-const eureka = 'https://vignette.wikia.nocookie.net/civilization/images/5/52/Eureka6.png/revision/latest?cb=20170406021031';
-const inspiration = 'https://vignette.wikia.nocookie.net/civilization/images/1/13/Inspiration6.png/revision/latest?cb=20170406020723';
-const envoy = 'https://vignette.wikia.nocookie.net/civilization/images/2/24/Envoy6.png/revision/latest?cb=20161107201124';
-const power = 'https://vignette.wikia.nocookie.net/civilization/images/5/59/Power_%28Civ6%29.png/revision/latest/scale-to-width-down/16?cb=20190216112249';
-const horses = 'https://vignette.wikia.nocookie.net/civilization/images/9/9b/Horses_%28Civ6%29.png/revision/latest/scale-to-width-down/20?cb=20180504043124';
-const iron = 'https://vignette.wikia.nocookie.net/civilization/images/7/78/Iron_%28Civ6%29.png/revision/latest/scale-to-width-down/20?cb=20180504043126';
-const niter = 'https://vignette.wikia.nocookie.net/civilization/images/3/3f/Niter_%28Civ6%29.png/revision/latest/scale-to-width-down/20?cb=20180504043128';
-const coal = 'https://vignette.wikia.nocookie.net/civilization/images/d/d8/Coal_%28Civ6%29.png/revision/latest/scale-to-width-down/20?cb=20180504043130';
-const oil = 'https://vignette.wikia.nocookie.net/civilization/images/d/de/Oil_%28Civ6%29.png/revision/latest/scale-to-width-down/20?cb=20180504043132';
-const aluminum = 'https://vignette.wikia.nocookie.net/civilization/images/0/06/Aluminum_%28Civ6%29.png/revision/latest/scale-to-width-down/20?cb=20180504041156';
-const uranium = 'https://vignette.wikia.nocookie.net/civilization/images/a/a5/Uranium_%28Civ6%29.png/revision/latest/scale-to-width-down/20?cb=20180504043135';
+const trade = 'https://vignette.wikia.nocookie.net/civilization/images/0/0f/TradeRoute6.png/';
+const visibility = 'https://vignette.wikia.nocookie.net/civilization/images/c/ce/DiplomaticVisibility6.png/';
+const tradePost = 'https://vignette.wikia.nocookie.net/civilization/images/7/72/Trading_Post_%28Civ6%29.png/';
+const population = 'https://vignette.wikia.nocookie.net/civilization/images/f/f8/Citizen6.png/';
+const relic = 'https://vignette.wikia.nocookie.net/civilization/images/c/c5/Relic6.png/';
+const favor = 'https://vignette.wikia.nocookie.net/civilization/images/c/c4/Diplomatic_Favor_%28Civ6%29.png/';
+const eureka = 'https://vignette.wikia.nocookie.net/civilization/images/5/52/Eureka6.png/';
+const inspiration = 'https://vignette.wikia.nocookie.net/civilization/images/1/13/';
+const envoy = 'https://vignette.wikia.nocookie.net/civilization/images/2/24/Envoy6.png/';
+const power = 'https://vignette.wikia.nocookie.net/civilization/images/5/59/Power_%28Civ6%29.png/';
+const horses = 'https://vignette.wikia.nocookie.net/civilization/images/9/9b/Horses_%28Civ6%29.png/';
+const iron = 'https://vignette.wikia.nocookie.net/civilization/images/7/78/Iron_%28Civ6%29.png/';
+const niter = 'https://vignette.wikia.nocookie.net/civilization/images/3/3f/Niter_%28Civ6%29.png/';
+const coal = 'https://vignette.wikia.nocookie.net/civilization/images/d/d8/Coal_%28Civ6%29.png/';
+const oil = 'https://vignette.wikia.nocookie.net/civilization/images/d/de/Oil_%28Civ6%29.png/';
+const aluminum = 'https://vignette.wikia.nocookie.net/civilization/images/0/06/Aluminum_%28Civ6%29.png/';
+const uranium = 'https://vignette.wikia.nocookie.net/civilization/images/a/a5/Uranium_%28Civ6%29.png/';
 
 // Great People
 const general = 'https://vignette.wikia.nocookie.net/civilization/images/f/fd/General6.png/';
@@ -45,22 +48,22 @@ const artist = 'https://vignette.wikia.nocookie.net/civilization/images/7/75/Art
 const merchant = 'https://vignette.wikia.nocookie.net/civilization/images/4/45/Merchant6.png/';
 
 // Districts
-const campus = 'https://vignette.wikia.nocookie.net/civilization/images/1/18/Campus_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20190309225632';
-const canal = 'https://vignette.wikia.nocookie.net/civilization/images/f/fd/Canal_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20190215175617';
-const dam = 'https://vignette.wikia.nocookie.net/civilization/images/5/50/Dam_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20190215175430';
-const holy = 'https://vignette.wikia.nocookie.net/civilization/images/a/a8/Holy_Site_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20180219222235';
-const theater = 'https://vignette.wikia.nocookie.net/civilization/images/4/44/Theater_Square_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20180219222505';
-const encampment = 'https://vignette.wikia.nocookie.net/civilization/images/2/24/Encampment_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20161028070041';
-const harbor = 'https://vignette.wikia.nocookie.net/civilization/images/d/df/Harbor_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20180220014220';
-const commercial = 'https://vignette.wikia.nocookie.net/civilization/images/f/fe/Commercial_Hub_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20180220014320';
-const industrial = 'https://vignette.wikia.nocookie.net/civilization/images/0/0b/Industrial_Zone_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20180220014408';
-const entertain = 'https://vignette.wikia.nocookie.net/civilization/images/c/cb/Entertainment_Complex_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20161110163714';
-const park = 'https://vignette.wikia.nocookie.net/civilization/images/2/2c/Water_Park_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20180415213203';
-const aqueduct = 'https://vignette.wikia.nocookie.net/civilization/images/f/f9/Aqueduct_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20161110163754';
-const neighborhood = 'https://vignette.wikia.nocookie.net/civilization/images/3/31/Neighborhood_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20180220014453';
-const aerodrome = 'https://vignette.wikia.nocookie.net/civilization/images/c/c7/Aerodrome_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20190622092811';
-const spaceport = 'https://vignette.wikia.nocookie.net/civilization/images/7/7d/Spaceport_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20161110163918';
-const plaza = 'https://vignette.wikia.nocookie.net/civilization/images/b/b3/Government_Plaza_%28Civ6%29.png/revision/latest/scale-to-width-down/44?cb=20180415212925';
+const campus = 'https://vignette.wikia.nocookie.net/civilization/images/1/18/Campus_%28Civ6%29.png/';
+const canal = 'https://vignette.wikia.nocookie.net/civilization/images/f/fd/Canal_%28Civ6%29.png/';
+const dam = 'https://vignette.wikia.nocookie.net/civilization/images/5/50/Dam_%28Civ6%29.png/';
+const holy = 'https://vignette.wikia.nocookie.net/civilization/images/a/a8/Holy_Site_%28Civ6%29.png/';
+const theater = 'https://vignette.wikia.nocookie.net/civilization/images/4/44/Theater_Square_%28Civ6%29.png/';
+const encampment = 'https://vignette.wikia.nocookie.net/civilization/images/2/24/Encampment_%28Civ6%29.png/';
+const harbor = 'https://vignette.wikia.nocookie.net/civilization/images/d/df/Harbor_%28Civ6%29.png/';
+const commercial = 'https://vignette.wikia.nocookie.net/civilization/images/f/fe/Commercial_Hub_%28Civ6%29.png/';
+const industrial = 'https://vignette.wikia.nocookie.net/civilization/images/0/0b/Industrial_Zone_%28Civ6%29.png/';
+const entertain = 'https://vignette.wikia.nocookie.net/civilization/images/c/cb/Entertainment_Complex_%28Civ6%29.png/';
+const park = 'https://vignette.wikia.nocookie.net/civilization/images/2/2c/Water_Park_%28Civ6%29.png/';
+const aqueduct = 'https://vignette.wikia.nocookie.net/civilization/images/f/f9/Aqueduct_%28Civ6%29.png/';
+const neighborhood = 'https://vignette.wikia.nocookie.net/civilization/images/3/31/Neighborhood_%28Civ6%29.png/';
+const aerodrome = 'https://vignette.wikia.nocookie.net/civilization/images/c/c7/Aerodrome_%28Civ6%29.png/';
+const spaceport = 'https://vignette.wikia.nocookie.net/civilization/images/7/7d/Spaceport_%28Civ6%29.png/';
+const plaza = 'https://vignette.wikia.nocookie.net/civilization/images/b/b3/Government_Plaza_%28Civ6%29.png/';
 
 
 $.getJSON('https://civ-randomizer-backend.herokuapp.com/').then((res) => {
@@ -68,18 +71,44 @@ $.getJSON('https://civ-randomizer-backend.herokuapp.com/').then((res) => {
 		$(`
 			<li class = "civ">
 				<img src = "${civ.icon}" alt = "${civ.name} icon">
-				<h3>${civ.name}</h3>
+				<div>
+					<h3>${civ.name}</h3>
+					<p class = "hidden">Disabled</p>
+				</div>
 			</li>
 		`).click((evt) => {
-			console.log(evt.currentTarget.querySelector('h3').textContent);
+			const thisCiv = evt.currentTarget.querySelector('h3').textContent;
+			if (civs.includes(thisCiv)) {
+				if (civs.length === 1) {
+					if ($('div.alert').length === 0) {
+						$(`
+							<div class = "alert" style = "position: absolute; top: ${evt.pageY}px; left: ${evt.pageX}px">
+								You must have at least 1 civ to randomize!
+							</div>
+						`).appendTo($('body'));
+						setTimeout(() => {
+							$('div.alert').remove();
+						}, 2500);
+					}
+					return;
+				}
+				ignoreCivs.push(civs.splice(civs.indexOf(thisCiv), 1)[0]);
+				$(evt.currentTarget).toggleClass('disabled');
+				$(evt.currentTarget.querySelector('div p')).toggleClass('hidden');
+			}
+			else {
+				civs.push(ignoreCivs.splice(ignoreCivs.indexOf(thisCiv), 1)[0]);
+				$(evt.currentTarget).toggleClass('disabled');
+				$(evt.currentTarget.querySelector('div p')).toggleClass('hidden');
+			}
 		}).appendTo($('ul#civ-list'));
 		civs.push(civ.name);
 	});
 });
 
 $('button#randomize-button').click(() => {
-	const choice = Math.floor(Math.random() * civs.length);
-	$.getJSON(`https://civ-randomizer-backend.herokuapp.com/?civ=${civs[choice]}`).then((civ) => {
+	const choice = civs[Math.floor(Math.random() * civs.length)];
+	$.getJSON(`https://civ-randomizer-backend.herokuapp.com/?civ=${choice}`).then((civ) => {
 		$('#chosen-civ').children().remove();
 		civ.leader = civ.leader[Math.floor(Math.random() * civ.leader.length)];
 		$(`
@@ -146,7 +175,9 @@ function iconify(str) {
 	newStr = newStr.replace(/Eurekas?/g, `<img src = "${eureka}" alt = "Eureka">`);
 	newStr = newStr.replace(/Inspirations?/g, `<img src = "${inspiration}" alt = "Inspiration">`);
 	newStr = newStr.replace('Envoy', `<img src = "${envoy}" alt = "Envoy">`);
-	newStr = newStr.replace('Power', `<img src = "${power}" alt = "Power">`);
+	newStr = newStr.replace('Power', (substring, args) => {
+		return newStr.slice(args, args + 7) === 'Powered' ? substring : `<img src = "${power}" alt = "Power">`;
+	});
 	newStr = newStr.replace('Horses', `<img src = "${horses}" alt = "Horses">`);
 	newStr = newStr.replace('Iron', `<img src = "${iron}" alt = "Iron">`);
 	newStr = newStr.replace('Niter', `<img src = "${niter}" alt = "Niter">`);
