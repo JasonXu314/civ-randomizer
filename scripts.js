@@ -25,7 +25,7 @@ const population = 'https://vignette.wikia.nocookie.net/civilization/images/f/f8
 const relic = 'https://vignette.wikia.nocookie.net/civilization/images/c/c5/Relic6.png/';
 const favor = 'https://vignette.wikia.nocookie.net/civilization/images/c/c4/Diplomatic_Favor_%28Civ6%29.png/';
 const eureka = 'https://vignette.wikia.nocookie.net/civilization/images/5/52/Eureka6.png/';
-const inspiration = 'https://vignette.wikia.nocookie.net/civilization/images/1/13/';
+const inspiration = 'https://vignette.wikia.nocookie.net/civilization/images/1/13/Inspiration6.png/';
 const envoy = 'https://vignette.wikia.nocookie.net/civilization/images/2/24/Envoy6.png/';
 const power = 'https://vignette.wikia.nocookie.net/civilization/images/5/59/Power_%28Civ6%29.png/';
 const horses = 'https://vignette.wikia.nocookie.net/civilization/images/9/9b/Horses_%28Civ6%29.png/';
@@ -126,8 +126,8 @@ $('button#randomize-button').click(() => {
 			<p>${iconify(civ.ability)}</p>
 			<h3>${civ.leader.abilityName}</h3>
 			<p>${iconify(civ.leader.ability)}</p>
-			${civ.infrastructure.map((inf) => `<h3>${inf.name}</h3>\n<ul>${inf.effects.map((effect) => `<li>${iconify(effect)}</li>`).join('\n')}</ul>`).join('\n')}
-			${civ.unit.map((unit) => `<h3>${unit.name}</h3>\n<ul>${unit.special.map((special) => `<li>${iconify(special)}</li>`).join('\n')}</ul>`).join('\n')}
+			${civ.infrastructure.map((inf) => `<h3>${inf.name} ${inf.replaces === null ? (inf.district === null ? '(Unique Improvement)' : '(Unique Building)') : `(Replaces ${inf.replaces})`}</h3>\n<ul>${inf.effects.map((effect) => `<li>${iconify(effect)}</li>`).join('\n')}</ul>`).join('\n')}
+			${civ.unit.map((unit) => `<h3>${unit.name} ${unit.replaces === null ? '(Unique Unit)' : `(Replaces ${unit.replaces})`}</h3>\n<ul>${unit.special.map((special) => `<li>${iconify(special)}</li>`).join('\n')}</ul>`).join('\n')}
 		`).appendTo($('#chosen-civ'));
 	});
 });
@@ -135,14 +135,16 @@ $('button#randomize-button').click(() => {
 function iconify(str) {
 	let newStr = str;
 	newStr = newStr.replace('Science', `<img src = "${science}" alt = "Science">`);
-	newStr = newStr.replace('Culture', (substring, args) => {
+	newStr = newStr.replace(/Culture/g, (substring, args) => {
 		return newStr.slice(args, args + 12) === 'Culture Bomb' ? substring : `<img src = "${culture}" alt = "Culture">`;
 	});
 	newStr = newStr.replace('Gold', (substring, args) => {
 		return newStr.slice(args, args + 10) === 'Golden Age' ? substring : `<img src = "${gold}" alt = "Gold">`;
 	});
-	newStr = newStr.replace('Faith', `<img src = "${faith}" alt = "Faith">`);
-	newStr = newStr.replace('Production', `<img src = "${production}" alt = "Production">`);
+	newStr = newStr.replace(/Faith/g, `<img src = "${faith}" alt = "Faith">`);
+	newStr = newStr.replace(/Production/g, (substring, args) => {
+		return newStr.slice(args - 5, args + 10) === 'Mass Production' ? substring : `<img src = "${production}" alt = "Production">`;
+	});
 	newStr = newStr.replace('Food', `<img src = "${food}" alt = "Food">`);
 	newStr = newStr.replace(/Great General Points?/g, `<img src = "${general}" alt = "Great General Point">`);
 	newStr = newStr.replace(/Great Admiral Points?/g, `<img src = "${admiral}" alt = "Great Admiral Point">`);
@@ -157,7 +159,7 @@ function iconify(str) {
 	newStr = newStr.replace(/(Amenities|Amenity)/g, `<img src = "${amenities}" alt = "Amenities">`);
 	newStr = newStr.replace('Movement', `<img src = "${movement}" alt = "Movement">`);
 	newStr = newStr.replace('Tourism', `<img src = "${tourism}" alt = "Tourism">`);
-	newStr = newStr.replace('Combat Strength', `<img src = "${melee}" alt = "Combat Strength">`);
+	newStr = newStr.replace(/Combat Strength/g, `<img src = "${melee}" alt = "Combat Strength">`);
 	newStr = newStr.replace(/Ranged Strength/g, `<img src = "${ranged}" alt = "Ranged Strength">`);
 	newStr = newStr.replace('Bombard Strength', `<img src = "${bombard}" alt = "Bombard Strength">`);
 	newStr = newStr.replace('Anti-Air Strength', `<img src = "${antiair}" alt = "Anti-Air Strength">`);
@@ -174,32 +176,32 @@ function iconify(str) {
 	newStr = newStr.replace('Diplomatic Favor', `<img src = "${favor}" alt = "Diplomatic Favor">`);
 	newStr = newStr.replace(/Eurekas?/g, `<img src = "${eureka}" alt = "Eureka">`);
 	newStr = newStr.replace(/Inspirations?/g, `<img src = "${inspiration}" alt = "Inspiration">`);
-	newStr = newStr.replace('Envoy', `<img src = "${envoy}" alt = "Envoy">`);
+	newStr = newStr.replace(/Envoys?/g, `<img src = "${envoy}" alt = "Envoy">`);
 	newStr = newStr.replace('Power', (substring, args) => {
 		return newStr.slice(args, args + 7) === 'Powered' ? substring : `<img src = "${power}" alt = "Power">`;
 	});
-	newStr = newStr.replace('Horses', `<img src = "${horses}" alt = "Horses">`);
+	newStr = newStr.replace('Horses	', `<img src = "${horses}" alt = "Horses">`);
 	newStr = newStr.replace('Iron', `<img src = "${iron}" alt = "Iron">`);
 	newStr = newStr.replace('Niter', `<img src = "${niter}" alt = "Niter">`);
 	newStr = newStr.replace('Coal', `<img src = "${coal}" alt = "Coal">`);
 	newStr = newStr.replace('Oil', `<img src = "${oil}" alt = "Oil">`);
 	newStr = newStr.replace('Aluminum', `<img src = "${aluminum}" alt = "Aluminum">`);
 	newStr = newStr.replace('Uranium', `<img src = "${uranium}" alt = "Uranium">`);
-	newStr = newStr.replace('Campus', `<img src = "${campus}" alt = "Campus">`);
-	newStr = newStr.replace(/Canals?/, `<img src = "${canal}" alt = "Canal">`);
-	newStr = newStr.replace('Dam', `<img src = "${dam}" alt = "Dam">`);
-	newStr = newStr.replace('Holy Site', `<img src = "${holy}" alt = "Holy Site">`);
-	newStr = newStr.replace('Theater Square', `<img src = "${theater}" alt = "Theater Square">`);
-	newStr = newStr.replace('Encampment', `<img src = "${encampment}" alt = "Encampment">`);
-	newStr = newStr.replace('Harbor', `<img src = "${harbor}" alt = "Harbor">`);
-	newStr = newStr.replace('Commerical Hub', `<img src = "${commercial}" alt = "Commercial Hub">`);
-	newStr = newStr.replace('Industrial Zone', `<img src = "${industrial}" alt = "Industrial">`);
+	newStr = newStr.replace(/Campus(es)?/g, `<img src = "${campus}" alt = "Campus">`);
+	newStr = newStr.replace(/Canals?/g, `<img src = "${canal}" alt = "Canal">`);
+	newStr = newStr.replace(/Dams?/g, `<img src = "${dam}" alt = "Dam">`);
+	newStr = newStr.replace(/Holy Sites?/g, `<img src = "${holy}" alt = "Holy Site">`);
+	newStr = newStr.replace(/Theater Squares?/g, `<img src = "${theater}" alt = "Theater Square">`);
+	newStr = newStr.replace(/Encampments?/g, `<img src = "${encampment}" alt = "Encampment">`);
+	newStr = newStr.replace(/Harbors?/g, `<img src = "${harbor}" alt = "Harbor">`);
+	newStr = newStr.replace(/Commercial Hubs?/g, `<img src = "${commercial}" alt = "Commercial Hub">`);
+	newStr = newStr.replace(/Industrial Zones?/g, `<img src = "${industrial}" alt = "Industrial">`);
 	newStr = newStr.replace(/Entertainment Complex(es)?/g, `<img src = "${entertain}" alt = "Entertainment Complex">`);
-	newStr = newStr.replace('Water Park', `<img src = "${park}" alt = "Water Park">`);
-	newStr = newStr.replace('Aqueduct', `<img src = "${aqueduct}" alt = "Aqueduct">`);
-	newStr = newStr.replace('Neighborhood', `<img src = "${neighborhood}" alt = "Neighborhood">`);
-	newStr = newStr.replace('Aerodrome', `<img src = "${aerodrome}" alt = "Aerodrome">`);
-	newStr = newStr.replace('Spaceport', `<img src = "${spaceport}" alt = "Spaceport">`);
-	newStr = newStr.replace('Government Plaza', `<img src = "${plaza}" alt = "Government Plaza">`);
+	newStr = newStr.replace(/Water Parks?/g, `<img src = "${park}" alt = "Water Park">`);
+	newStr = newStr.replace(/Aqueducts?/g, `<img src = "${aqueduct}" alt = "Aqueduct">`);
+	newStr = newStr.replace(/Neighborhoods?/g, `<img src = "${neighborhood}" alt = "Neighborhood">`);
+	newStr = newStr.replace(/Aerodromes?/g, `<img src = "${aerodrome}" alt = "Aerodrome">`);
+	newStr = newStr.replace(/Spaceports?/g, `<img src = "${spaceport}" alt = "Spaceport">`);
+	newStr = newStr.replace(/Government Plazas?/g, `<img src = "${plaza}" alt = "Government Plaza">`);
 	return newStr;
 }
