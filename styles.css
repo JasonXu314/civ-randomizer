@@ -18,6 +18,7 @@ h2 {
 
 h3 {
 	font-size: 1.5em;
+	color: white;
 }
 
 p {
@@ -100,4 +101,29 @@ div#main div#chosen-civ img {
 
 div#main div#chosen-civ p {
 	margin: 0.5em;
+	text-indent: 5%;
+}
+
+div#main div#chosen-civ ul {
+	list-style: none;
+}
+
+div#main div#chosen-civ ul li {
+	color: white;
+	text-indent: 5%;
+}
+
+div#main div#chosen-civ div.outer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+div#main div#chosen-civ div.outer div h2 {
+	text-align: center;
+}
+
+div#main div#chosen-civ div.outer div img {
+	margin-left: 50%;
+	transform: translate(-50%, 0);
+	border-radius: 50%;
 }
