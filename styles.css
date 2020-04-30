@@ -92,6 +92,7 @@ div#main div#chosen-civ {
 	background-color: rgb(38, 38, 134);
 	border-left: 2px solid black;
 	padding: 1em;
+	overflow-y: scroll;
 }
 
 div#main div#chosen-civ img {
@@ -111,6 +112,20 @@ div#main div#chosen-civ ul {
 div#main div#chosen-civ ul li {
 	color: white;
 	text-indent: 5%;
+}
+
+div#main div#chosen-civ ul li img {
+	height: 1em;
+	width: 1em;
+	border-radius: 50%;
+	transform: translate(-5%, 11%);
+}
+
+div#main div#chosen-civ p img {
+	height: 1em;
+	width: 1em;
+	border-radius: 50%;
+	transform: translate(-5%, 11%);
 }
 
 div#main div#chosen-civ div.outer {
