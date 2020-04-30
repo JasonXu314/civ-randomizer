@@ -9,14 +9,14 @@
 }
 
 h1 {
+	position: relative;
     font-size: 4em;
-    left: 1em;
+    left: 25%;
 }
 
 h2 {
     font-size: 3em;
     padding: 5px;
-    left: 2em;
     color: white;
 }
 
@@ -61,6 +61,7 @@ div#main div#list {
 	background-color: rgb(38, 38, 134);
 	height: 88vh;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 div#main div#list ul {
@@ -69,7 +70,7 @@ div#main div#list ul {
 
 div#main div#list ul li.civ {
 	display: grid;
-	grid-template-columns: 2fr 12fr;
+	grid-template-columns: 2fr 18fr;
 	cursor: pointer;
 	margin: 0.4em 1em;
 	background: rgb(5, 5, 109);
@@ -116,6 +117,7 @@ div#main div#chosen-civ {
 	border-left: 2px solid black;
 	padding: 1em;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 div#main div#chosen-civ img {
@@ -175,4 +177,16 @@ div.alert {
 	transform: translate(-50%, -50%);
 	cursor: default;
 	user-select: none;
+}
+
+div#civ-list-title {
+	background: rgb(5,5, 109);
+	border: 1px solid black;
+	border-radius: 10px;
+	font-size: 0.75em;
+}
+
+div#civ-list-title h2 {
+	position: relative;
+	left: 42%;
 }
