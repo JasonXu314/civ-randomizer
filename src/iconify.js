@@ -1,0 +1,143 @@
+// Yields
+const science = 'https://vignette.wikia.nocookie.net/civilization/images/7/79/Civ6Science.png/';
+const culture = 'https://vignette.wikia.nocookie.net/civilization/images/2/2a/Civ6Culture.png/';
+const gold = 'https://vignette.wikia.nocookie.net/civilization/images/b/bc/Civ6Gold.png/';
+const faith = 'https://vignette.wikia.nocookie.net/civilization/images/8/82/Civ6Faith.png/';
+const production = 'https://vignette.wikia.nocookie.net/civilization/images/7/74/Civ6Production.png/';
+const food = 'https://vignette.wikia.nocookie.net/civilization/images/6/65/Civ6Food.png/';
+const housing = 'https://vignette.wikia.nocookie.net/civilization/images/a/ae/Housing6.png/';
+const amenities = 'https://vignette.wikia.nocookie.net/civilization/images/6/65/Amenities6.png/';
+const movement = 'https://vignette.wikia.nocookie.net/civilization/images/8/89/Civ6Movement.png/';
+const tourism = 'https://vignette.wikia.nocookie.net/civilization/images/5/5b/Tourism6.png/';
+const melee = 'https://vignette.wikia.nocookie.net/civilization/images/b/b6/Civ6StrengthIcon.png/';
+const ranged = 'https://vignette.wikia.nocookie.net/civilization/images/d/da/Civ6RangedStrength.png/';
+const bombard = 'https://vignette.wikia.nocookie.net/civilization/images/5/59/Bombard_Strength_%28Civ6%29.png/';
+const antiair = 'https://vignette.wikia.nocookie.net/civilization/images/2/28/Anti-Air_Strength_%28Civ6%29.png/';
+const religious = 'https://vignette.wikia.nocookie.net/civilization/images/2/22/ReligiousStrength6.png/';
+const range = 'https://vignette.wikia.nocookie.net/civilization/images/9/9e/Civ6Range.png/';
+const trade = 'https://vignette.wikia.nocookie.net/civilization/images/0/0f/TradeRoute6.png/';
+const visibility = 'https://vignette.wikia.nocookie.net/civilization/images/c/ce/DiplomaticVisibility6.png/';
+const tradePost = 'https://vignette.wikia.nocookie.net/civilization/images/7/72/Trading_Post_%28Civ6%29.png/';
+const population = 'https://vignette.wikia.nocookie.net/civilization/images/f/f8/Citizen6.png/';
+const relic = 'https://vignette.wikia.nocookie.net/civilization/images/c/c5/Relic6.png/';
+const artifact = 'https://vignette.wikia.nocookie.net/civilization/images/8/87/Artifact6.png/';
+const sculpture = 'https://vignette.wikia.nocookie.net/civilization/images/5/56/Sculpture6.png/';
+const portrait = 'https://vignette.wikia.nocookie.net/civilization/images/9/99/Portrait6.png/';
+const favor = 'https://vignette.wikia.nocookie.net/civilization/images/c/c4/Diplomatic_Favor_%28Civ6%29.png/';
+const eureka = 'https://vignette.wikia.nocookie.net/civilization/images/5/52/Eureka6.png/';
+const inspiration = 'https://vignette.wikia.nocookie.net/civilization/images/1/13/Inspiration6.png/';
+const envoy = 'https://vignette.wikia.nocookie.net/civilization/images/2/24/Envoy6.png/';
+const power = 'https://vignette.wikia.nocookie.net/civilization/images/5/59/Power_%28Civ6%29.png/';
+const horses = 'https://vignette.wikia.nocookie.net/civilization/images/9/9b/Horses_%28Civ6%29.png/';
+const iron = 'https://vignette.wikia.nocookie.net/civilization/images/7/78/Iron_%28Civ6%29.png/';
+const niter = 'https://vignette.wikia.nocookie.net/civilization/images/3/3f/Niter_%28Civ6%29.png/';
+const coal = 'https://vignette.wikia.nocookie.net/civilization/images/d/d8/Coal_%28Civ6%29.png/';
+const oil = 'https://vignette.wikia.nocookie.net/civilization/images/d/de/Oil_%28Civ6%29.png/';
+const aluminum = 'https://vignette.wikia.nocookie.net/civilization/images/0/06/Aluminum_%28Civ6%29.png/';
+const uranium = 'https://vignette.wikia.nocookie.net/civilization/images/a/a5/Uranium_%28Civ6%29.png/';
+
+// Great People
+const general = 'https://vignette.wikia.nocookie.net/civilization/images/f/fd/General6.png/';
+const admiral = 'https://vignette.wikia.nocookie.net/civilization/images/1/1a/Admiral6.png/';
+const engineer =  'https://vignette.wikia.nocookie.net/civilization/images/8/8b/Engineer6.png/';
+const writer =  'https://vignette.wikia.nocookie.net/civilization/images/3/3f/Writer6.png/';
+const musician =  'https://vignette.wikia.nocookie.net/civilization/images/0/00/Musician6.png/';
+const scientist =  'https://vignette.wikia.nocookie.net/civilization/images/8/84/Scientist6.png/';
+const prophet = 'https://vignette.wikia.nocookie.net/civilization/images/d/d3/Prophet6.png/';
+const artist = 'https://vignette.wikia.nocookie.net/civilization/images/7/75/Artist6.png/';
+const merchant = 'https://vignette.wikia.nocookie.net/civilization/images/4/45/Merchant6.png/';
+
+// Districts
+const campus = 'https://vignette.wikia.nocookie.net/civilization/images/1/18/Campus_%28Civ6%29.png/';
+const canal = 'https://vignette.wikia.nocookie.net/civilization/images/f/fd/Canal_%28Civ6%29.png/';
+const dam = 'https://vignette.wikia.nocookie.net/civilization/images/5/50/Dam_%28Civ6%29.png/';
+const holy = 'https://vignette.wikia.nocookie.net/civilization/images/a/a8/Holy_Site_%28Civ6%29.png/';
+const theater = 'https://vignette.wikia.nocookie.net/civilization/images/4/44/Theater_Square_%28Civ6%29.png/';
+const encampment = 'https://vignette.wikia.nocookie.net/civilization/images/2/24/Encampment_%28Civ6%29.png/';
+const harbor = 'https://vignette.wikia.nocookie.net/civilization/images/d/df/Harbor_%28Civ6%29.png/';
+const commercial = 'https://vignette.wikia.nocookie.net/civilization/images/f/fe/Commercial_Hub_%28Civ6%29.png/';
+const industrial = 'https://vignette.wikia.nocookie.net/civilization/images/0/0b/Industrial_Zone_%28Civ6%29.png/';
+const entertain = 'https://vignette.wikia.nocookie.net/civilization/images/c/cb/Entertainment_Complex_%28Civ6%29.png/';
+const park = 'https://vignette.wikia.nocookie.net/civilization/images/2/2c/Water_Park_%28Civ6%29.png/';
+const aqueduct = 'https://vignette.wikia.nocookie.net/civilization/images/f/f9/Aqueduct_%28Civ6%29.png/';
+const neighborhood = 'https://vignette.wikia.nocookie.net/civilization/images/3/31/Neighborhood_%28Civ6%29.png/';
+const aerodrome = 'https://vignette.wikia.nocookie.net/civilization/images/c/c7/Aerodrome_%28Civ6%29.png/';
+const spaceport = 'https://vignette.wikia.nocookie.net/civilization/images/7/7d/Spaceport_%28Civ6%29.png/';
+const plaza = 'https://vignette.wikia.nocookie.net/civilization/images/b/b3/Government_Plaza_%28Civ6%29.png/';
+
+export default function iconify(str) {
+	let newStr = str;
+	newStr = newStr.replace('Science', `<img src = "${science}" alt = "Science">`);
+	newStr = newStr.replace(/Culture/g, (substring, args) => {
+		return newStr.slice(args, args + 12) === 'Culture Bomb' ? substring : `<img src = "${culture}" alt = "Culture">`;
+	});
+	newStr = newStr.replace('Gold', (substring, args) => {
+		return newStr.slice(args, args + 10) === 'Golden Age' ? substring : `<img src = "${gold}" alt = "Gold">`;
+	});
+	newStr = newStr.replace(/Faith/g, `<img src = "${faith}" alt = "Faith">`);
+	newStr = newStr.replace(/Production/g, (substring, args) => {
+		return newStr.slice(args - 5, args + 10) === 'Mass Production' ? substring : `<img src = "${production}" alt = "Production">`;
+	});
+	newStr = newStr.replace('Food', `<img src = "${food}" alt = "Food">`);
+	newStr = newStr.replace(/Great General Points?/g, `<img src = "${general}" alt = "Great General Point" title = "Great General">`);
+	newStr = newStr.replace(/Great Admiral Points?/g, `<img src = "${admiral}" alt = "Great Admiral Point" title = "Great Amiral">`);
+	newStr = newStr.replace(/Great Engineer Points?/g, `<img src = "${engineer}" alt = "Great Engineer Point" title = "Great Engineer">`);
+	newStr = newStr.replace(/Great Writer Points?/g, `<img src = "${writer}" alt = "Great Writer Point" title = "Great Writer">`);
+	newStr = newStr.replace(/Great Musician Points?/g, `<img src = "${musician}" alt = "Great Musician Point" title = "Great Musician">`);
+	newStr = newStr.replace(/Great Scientist Points?/g, `<img src = "${scientist}" alt = "Great Scientist Point" title = "Great Scientist>`);
+	newStr = newStr.replace(/Great Prophet Points?/g, `<img src = "${prophet}" alt = "Great Prophet Point" title = "Great Prophet">`);
+	newStr = newStr.replace(/Great Artist Points?/g, `<img src = "${artist}" alt = "Great Artist Point" title = "Great Artist">`);
+	newStr = newStr.replace(/Great Merchant Points?/g, `<img src = "${merchant}" alt = "Great Merchant Point" title = "Great Merchant">`);
+	newStr = newStr.replace('Housing', `<img src = "${housing}" alt = "Housing">`);
+	newStr = newStr.replace(/(Amenities|Amenity)/g, `<img src = "${amenities}" alt = "Amenities">`);
+	newStr = newStr.replace('Movement', `<img src = "${movement}" alt = "Movement">`);
+	newStr = newStr.replace('Tourism', `<img src = "${tourism}" alt = "Tourism">`);
+	newStr = newStr.replace(/Combat Strength/g, `<img src = "${melee}" alt = "Combat Strength">`);
+	newStr = newStr.replace(/Ranged Strength/g, `<img src = "${ranged}" alt = "Ranged Strength">`);
+	newStr = newStr.replace('Bombard Strength', `<img src = "${bombard}" alt = "Bombard Strength">`);
+	newStr = newStr.replace('Anti-Air Strength', `<img src = "${antiair}" alt = "Anti-Air Strength">`);
+	newStr = newStr.replace('Religious Strength', `<img src = "${religious}" alt = "Religious Strength">`);
+	newStr = newStr.replace('Range', (substring, args) => {
+		return newStr.slice(args, args + 6) === 'Ranged' ? substring : `<img src = "${range}" alt = "Range">`;
+	});
+	newStr = newStr.replace(/Traders?/g, `<img src = "${trade}" alt = "Trader">`);
+	newStr = newStr.replace(/Trade Routes?/g, `<img src = "${trade}" alt = "Trade Route">`);
+	newStr = newStr.replace('Diplomatic Visibility', `<img src = "${visibility}" alt = "Diplomatic Visibility" title = "Diplomatic Visibility">`);
+	newStr = newStr.replace('Trading Post', `<img src = "${tradePost}" alt = "Trading Post">`);
+	newStr = newStr.replace('Population', `<img src = "${population}" alt = "Population">`);
+    newStr = newStr.replace(/Relics?/g, `<img src = "${relic}" alt = "Relic" title = "Relic">`);
+    newStr = newStr.replace(/Artifacts?/g, `<img src = "${artifact}" alt = "Relic" title = "Artifact">`);
+    newStr = newStr.replace(/Sculptures?/g, `<img src = "${sculpture}" alt = "Relic" title = "Sculpture">`);
+    newStr = newStr.replace(/Portraits?/g, `<img src = "${portrait}" alt = "Relic" title = "Portrait">`);
+	newStr = newStr.replace('Diplomatic Favor', `<img src = "${favor}" alt = "Diplomatic Favor">`);
+	newStr = newStr.replace('Eureka', `<img src = "${eureka}" alt = "Eureka">Eureka`);
+	newStr = newStr.replace('Inspirations', `<img src = "${inspiration}" alt = "Inspiration">Inspiration`);
+	newStr = newStr.replace(/Envoys?/g, `<img src = "${envoy}" alt = "Envoy">`);
+	newStr = newStr.replace('Power', (substring, args) => {
+		return newStr.slice(args, args + 7) === 'Powered' ? substring : `<img src = "${power}" alt = "Power">`;
+	});
+	newStr = newStr.replace('Horses	', `<img src = "${horses}" alt = "Horses">`);
+	newStr = newStr.replace('Iron', `<img src = "${iron}" alt = "Iron">`);
+	newStr = newStr.replace('Niter', `<img src = "${niter}" alt = "Niter">`);
+	newStr = newStr.replace('Coal', `<img src = "${coal}" alt = "Coal">`);
+	newStr = newStr.replace('Oil', `<img src = "${oil}" alt = "Oil">`);
+	newStr = newStr.replace('Aluminum', `<img src = "${aluminum}" alt = "Aluminum">`);
+	newStr = newStr.replace('Uranium', `<img src = "${uranium}" alt = "Uranium">`);
+	newStr = newStr.replace(/Campus(es)?/g, `<img src = "${campus}" alt = "Campus">`);
+	newStr = newStr.replace(/Canals?/g, `<img src = "${canal}" alt = "Canal">`);
+	newStr = newStr.replace(/Dams?/g, `<img src = "${dam}" alt = "Dam">`);
+	newStr = newStr.replace(/Holy Sites?/g, `<img src = "${holy}" alt = "Holy Site">`);
+	newStr = newStr.replace(/Theater Squares?/g, `<img src = "${theater}" alt = "Theater Square">`);
+	newStr = newStr.replace(/Encampments?/g, `<img src = "${encampment}" alt = "Encampment">`);
+	newStr = newStr.replace(/Harbors?/g, `<img src = "${harbor}" alt = "Harbor">`);
+	newStr = newStr.replace(/Commercial Hubs?/g, `<img src = "${commercial}" alt = "Commercial Hub">`);
+	newStr = newStr.replace(/Industrial Zones?/g, `<img src = "${industrial}" alt = "Industrial">`);
+	newStr = newStr.replace(/Entertainment Complex(es)?/g, `<img src = "${entertain}" alt = "Entertainment Complex">`);
+	newStr = newStr.replace(/Water Parks?/g, `<img src = "${park}" alt = "Water Park">`);
+	newStr = newStr.replace(/Aqueducts?/g, `<img src = "${aqueduct}" alt = "Aqueduct">`);
+	newStr = newStr.replace(/Neighborhoods?/g, `<img src = "${neighborhood}" alt = "Neighborhood">`);
+	newStr = newStr.replace(/Aerodromes?/g, `<img src = "${aerodrome}" alt = "Aerodrome">`);
+	newStr = newStr.replace(/Spaceports?/g, `<img src = "${spaceport}" alt = "Spaceport">`);
+	newStr = newStr.replace(/Government Plazas?/g, `<img src = "${plaza}" alt = "Government Plaza">`);
+	return newStr;
+}
