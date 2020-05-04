@@ -89,7 +89,7 @@ div#main div#list ul li.civ.disabled:hover {
 	background: rgb(24, 24, 134);
 }
 
-div#main div#list ul li.civ:hover {
+div#main div#list ul li.civ:hover, div#main div#list ul li.civ.hovered {
 	background: rgb(19, 19, 97);
 }
 

@@ -45,8 +45,10 @@ $.getJSON('https://civ-randomizer-backend.herokuapp.com/').then((res) => {
 });
 
 $('button#randomize-button').click(() => {
-	const choice = civs[Math.floor(Math.random() * civs.length)];
-	$.getJSON(`https://civ-randomizer-backend.herokuapp.com/?civ=${choice}`).then((civ) => {
+	$('.hovered').removeClass('hovered');
+	const choice = Math.floor(Math.random() * civs.length);
+	iterateRandom(choice);
+	$.getJSON(`https://civ-randomizer-backend.herokuapp.com/?civ=${civs[choice]}`).then((civ) => {
 		$('#chosen-civ').children().remove();
 		civ.leader = civ.leader[Math.floor(Math.random() * civ.leader.length)];
 		$(`
@@ -69,6 +71,42 @@ $('button#randomize-button').click(() => {
 		`).appendTo($('#chosen-civ'));
 	});
 });
+
+async function iterateRandom(idx) {
+	return new Promise(async (resolve, reject) => {
+		for (let i = 0; i < civs.length * 2; i++) {
+			$('li.civ').filter((_, elem) => elem.querySelector('div h3').textContent === civs[i % civs.length])
+				.toggleClass('hovered');
+			await sleep(25);
+			$('li.civ').filter((_, elem) => elem.querySelector('div h3').textContent === civs[i % civs.length])
+				.toggleClass('hovered');
+		}
+		for (let i = 0; i < civs.length; i++) {
+			$('li.civ').filter((_, elem) => elem.querySelector('div h3').textContent === civs[i])
+				.toggleClass('hovered');
+			await sleep(50);
+			$('li.civ').filter((_, elem) => elem.querySelector('div h3').textContent === civs[i])
+				.toggleClass('hovered');
+		}
+		for (let i = 0; i < idx; i++) {
+			$('li.civ').filter((_, elem) => elem.querySelector('div h3').textContent === civs[i])
+				.toggleClass('hovered');
+				await sleep(100 + (100/(idx - i)));
+				$('li.civ').filter((_, elem) => elem.querySelector('div h3').textContent === civs[i])
+				.toggleClass('hovered');
+		}
+		$('li.civ').filter((_, elem) => elem.querySelector('div h3').textContent === civs[idx])
+			.toggleClass('hovered');
+	});
+}
+
+async function sleep(time) {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve();
+		}, time);
+	});
+}
 
 window.allBut = (civ) => {
 	$('li.civ').each((_, elem) => {
