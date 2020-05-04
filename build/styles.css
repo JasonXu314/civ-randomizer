@@ -38,7 +38,7 @@ body {
 button#randomize-button {
 	margin: calc(2em/3) calc(20em/3);
 	border-radius: 6px;
-	background-color: rgb(5, 5, 109);
+	background-color: rgb(57, 57, 177);
 	border: 1px solid black;
 	color: white;
 	cursor: pointer;
@@ -47,7 +47,7 @@ button#randomize-button {
 }
 
 button#randomize-button:hover {
-	background-color: rgb(40, 40, 124);
+	background-color: rgb(76, 76, 160);
 }
 
 div#main {
@@ -58,7 +58,7 @@ div#main {
 }
 
 div#main div#list {
-	background-color: rgb(38, 38, 134);
+	background-color: rgb(73, 73, 175);
 	height: 88vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -73,7 +73,7 @@ div#main div#list ul li.civ {
 	grid-template-columns: 2fr 18fr;
 	cursor: pointer;
 	margin: 0.4em 1em;
-	background: rgb(5, 5, 109);
+	background: rgb(38, 38, 160);
 	border: 1.5px solid black;
 	padding: 0.5em;
 	border-radius: 12px;
@@ -82,15 +82,15 @@ div#main div#list ul li.civ {
 }
 
 div#main div#list ul li.civ.disabled {
-	background: rgb(3, 3, 68);
+	background: rgb(19, 19, 97);
 }
 
 div#main div#list ul li.civ.disabled:hover {
-	background: rgb(5,5, 109);
+	background: rgb(24, 24, 134);
 }
 
 div#main div#list ul li.civ:hover {
-	background: rgb(3, 3, 68);
+	background: rgb(19, 19, 97);
 }
 
 div#main div#list ul li.civ img {
@@ -113,7 +113,7 @@ div#main div#list ul li.civ div h3 {
 }
 
 div#main div#chosen-civ {
-	background-color: rgb(38, 38, 134);
+	background-color: rgb(62, 62, 161);
 	border-left: 2px solid black;
 	padding: 1em;
 	overflow-y: scroll;
@@ -180,7 +180,7 @@ div.alert {
 }
 
 div#civ-list-title {
-	background: rgb(5,5, 109);
+	background: rgb(25, 25, 150);
 	border: 1px solid black;
 	border-radius: 10px;
 	font-size: 0.75em;

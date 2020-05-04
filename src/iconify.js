@@ -1,6 +1,3 @@
-const civs = [];
-const ignoreCivs = [];
-
 // Yields
 const science = 'https://vignette.wikia.nocookie.net/civilization/images/7/79/Civ6Science.png/';
 const culture = 'https://vignette.wikia.nocookie.net/civilization/images/2/2a/Civ6Culture.png/';
@@ -9,7 +6,7 @@ const faith = 'https://vignette.wikia.nocookie.net/civilization/images/8/82/Civ6
 const production = 'https://vignette.wikia.nocookie.net/civilization/images/7/74/Civ6Production.png/';
 const food = 'https://vignette.wikia.nocookie.net/civilization/images/6/65/Civ6Food.png/';
 const housing = 'https://vignette.wikia.nocookie.net/civilization/images/a/ae/Housing6.png/';
-const amenities = 'https://gamepedia.cursecdn.com/civ6_gamepedia_en/a/a8/Icon_Amenities.png?version=711dd4e8aa532c9db271a3840bff52fd';
+const amenities = 'https://vignette.wikia.nocookie.net/civilization/images/6/65/Amenities6.png/';
 const movement = 'https://vignette.wikia.nocookie.net/civilization/images/8/89/Civ6Movement.png/';
 const tourism = 'https://vignette.wikia.nocookie.net/civilization/images/5/5b/Tourism6.png/';
 const melee = 'https://vignette.wikia.nocookie.net/civilization/images/b/b6/Civ6StrengthIcon.png/';
@@ -23,6 +20,9 @@ const visibility = 'https://vignette.wikia.nocookie.net/civilization/images/c/ce
 const tradePost = 'https://vignette.wikia.nocookie.net/civilization/images/7/72/Trading_Post_%28Civ6%29.png/';
 const population = 'https://vignette.wikia.nocookie.net/civilization/images/f/f8/Citizen6.png/';
 const relic = 'https://vignette.wikia.nocookie.net/civilization/images/c/c5/Relic6.png/';
+const artifact = 'https://vignette.wikia.nocookie.net/civilization/images/8/87/Artifact6.png/';
+const sculpture = 'https://vignette.wikia.nocookie.net/civilization/images/5/56/Sculpture6.png/';
+const portrait = 'https://vignette.wikia.nocookie.net/civilization/images/9/99/Portrait6.png/';
 const favor = 'https://vignette.wikia.nocookie.net/civilization/images/c/c4/Diplomatic_Favor_%28Civ6%29.png/';
 const eureka = 'https://vignette.wikia.nocookie.net/civilization/images/5/52/Eureka6.png/';
 const inspiration = 'https://vignette.wikia.nocookie.net/civilization/images/1/13/Inspiration6.png/';
@@ -65,74 +65,7 @@ const aerodrome = 'https://vignette.wikia.nocookie.net/civilization/images/c/c7/
 const spaceport = 'https://vignette.wikia.nocookie.net/civilization/images/7/7d/Spaceport_%28Civ6%29.png/';
 const plaza = 'https://vignette.wikia.nocookie.net/civilization/images/b/b3/Government_Plaza_%28Civ6%29.png/';
 
-
-$.getJSON('https://civ-randomizer-backend.herokuapp.com/').then((res) => {
-	res.forEach((civ) => {
-		$(`
-			<li class = "civ">
-				<img src = "${civ.icon}" alt = "${civ.name} icon">
-				<div>
-					<h3>${civ.name}</h3>
-					<p class = "hidden">Disabled</p>
-				</div>
-			</li>
-		`).click((evt) => {
-			const thisCiv = evt.currentTarget.querySelector('h3').textContent;
-			if (civs.includes(thisCiv)) {
-				if (civs.length === 1) {
-					if ($('div.alert').length === 0) {
-						$(`
-							<div class = "alert" style = "position: absolute; top: ${evt.pageY}px; left: ${evt.pageX}px">
-								You must have at least 1 civ to randomize!
-							</div>
-						`).appendTo($('body'));
-						setTimeout(() => {
-							$('div.alert').remove();
-						}, 2500);
-					}
-					return;
-				}
-				ignoreCivs.push(civs.splice(civs.indexOf(thisCiv), 1)[0]);
-				$(evt.currentTarget).toggleClass('disabled');
-				$(evt.currentTarget.querySelector('div p')).toggleClass('hidden');
-			}
-			else {
-				civs.push(ignoreCivs.splice(ignoreCivs.indexOf(thisCiv), 1)[0]);
-				$(evt.currentTarget).toggleClass('disabled');
-				$(evt.currentTarget.querySelector('div p')).toggleClass('hidden');
-			}
-		}).appendTo($('ul#civ-list'));
-		civs.push(civ.name);
-	});
-});
-
-$('button#randomize-button').click(() => {
-	const choice = civs[Math.floor(Math.random() * civs.length)];
-	$.getJSON(`https://civ-randomizer-backend.herokuapp.com/?civ=${choice}`).then((civ) => {
-		$('#chosen-civ').children().remove();
-		civ.leader = civ.leader[Math.floor(Math.random() * civ.leader.length)];
-		$(`
-			<div class = "outer">
-				<div>
-					<h2>${civ.name}</h2>
-					<img src = "${civ.icon}" alt = "${civ.name} icon">
-				</div>
-				<div>
-					<h2>${civ.leader.name}</h2>
-					<img src = "${civ.leader.portrait}" alt = "${civ.leader.name}">
-				</div>
-			</div>
-			<h3>${civ.abilityName}</h3>
-			<p>${iconify(civ.ability)}</p>
-			<h3>${civ.leader.abilityName}</h3>
-			<p>${iconify(civ.leader.ability)}</p>
-			${civ.infrastructure.map((inf) => `<h3>${inf.name} ${inf.replaces === null ? (inf.district === null ? '(Unique Improvement)' : '(Unique Building)') : `(Replaces ${inf.replaces})`}</h3>\n<ul>${inf.effects.map((effect) => `<li>${iconify(effect)}</li>`).join('\n')}</ul>`).join('\n')}
-			${civ.unit.map((unit) => `<h3>${unit.name} ${unit.replaces === null ? '(Unique Unit)' : `(Replaces ${unit.replaces})`}</h3>\n<ul>${unit.special.map((special) => `<li>${iconify(special)}</li>`).join('\n')}</ul>`).join('\n')}
-		`).appendTo($('#chosen-civ'));
-	});
-});
-
-function iconify(str) {
+export default function iconify(str) {
 	let newStr = str;
 	newStr = newStr.replace('Science', `<img src = "${science}" alt = "Science">`);
 	newStr = newStr.replace(/Culture/g, (substring, args) => {
@@ -146,15 +79,15 @@ function iconify(str) {
 		return newStr.slice(args - 5, args + 10) === 'Mass Production' ? substring : `<img src = "${production}" alt = "Production">`;
 	});
 	newStr = newStr.replace('Food', `<img src = "${food}" alt = "Food">`);
-	newStr = newStr.replace(/Great General Points?/g, `<img src = "${general}" alt = "Great General Point">`);
-	newStr = newStr.replace(/Great Admiral Points?/g, `<img src = "${admiral}" alt = "Great Admiral Point">`);
-	newStr = newStr.replace(/Great Engineer Points?/g, `<img src = "${engineer}" alt = "Great Engineer Point">`);
-	newStr = newStr.replace(/Great Writer Points?/g, `<img src = "${writer}" alt = "Great Writer Point">`);
-	newStr = newStr.replace(/Great Musician Points?/g, `<img src = "${musician}" alt = "Great Musician Point">`);
-	newStr = newStr.replace(/Great Scientist Points?/g, `<img src = "${scientist}" alt = "Great Scientist Point">`);
-	newStr = newStr.replace(/Great Prophet Points?/g, `<img src = "${prophet}" alt = "Great Prophet Point">`);
-	newStr = newStr.replace(/Great Artist Points?/g, `<img src = "${artist}" alt = "Great Artist Point">`);
-	newStr = newStr.replace(/Great Merchant Points?/g, `<img src = "${merchant}" alt = "Great Merchant Point">`);
+	newStr = newStr.replace(/Great General Points?/g, `<img src = "${general}" alt = "Great General Point" title = "Great General">`);
+	newStr = newStr.replace(/Great Admiral Points?/g, `<img src = "${admiral}" alt = "Great Admiral Point" title = "Great Amiral">`);
+	newStr = newStr.replace(/Great Engineer Points?/g, `<img src = "${engineer}" alt = "Great Engineer Point" title = "Great Engineer">`);
+	newStr = newStr.replace(/Great Writer Points?/g, `<img src = "${writer}" alt = "Great Writer Point" title = "Great Writer">`);
+	newStr = newStr.replace(/Great Musician Points?/g, `<img src = "${musician}" alt = "Great Musician Point" title = "Great Musician">`);
+	newStr = newStr.replace(/Great Scientist Points?/g, `<img src = "${scientist}" alt = "Great Scientist Point" title = "Great Scientist>`);
+	newStr = newStr.replace(/Great Prophet Points?/g, `<img src = "${prophet}" alt = "Great Prophet Point" title = "Great Prophet">`);
+	newStr = newStr.replace(/Great Artist Points?/g, `<img src = "${artist}" alt = "Great Artist Point" title = "Great Artist">`);
+	newStr = newStr.replace(/Great Merchant Points?/g, `<img src = "${merchant}" alt = "Great Merchant Point" title = "Great Merchant">`);
 	newStr = newStr.replace('Housing', `<img src = "${housing}" alt = "Housing">`);
 	newStr = newStr.replace(/(Amenities|Amenity)/g, `<img src = "${amenities}" alt = "Amenities">`);
 	newStr = newStr.replace('Movement', `<img src = "${movement}" alt = "Movement">`);
@@ -169,13 +102,16 @@ function iconify(str) {
 	});
 	newStr = newStr.replace(/Traders?/g, `<img src = "${trade}" alt = "Trader">`);
 	newStr = newStr.replace(/Trade Routes?/g, `<img src = "${trade}" alt = "Trade Route">`);
-	newStr = newStr.replace('Diplomatic Visibility', `<img src = "${visibility}" alt = "Diplomatic Visibility">`);
+	newStr = newStr.replace('Diplomatic Visibility', `<img src = "${visibility}" alt = "Diplomatic Visibility" title = "Diplomatic Visibility">`);
 	newStr = newStr.replace('Trading Post', `<img src = "${tradePost}" alt = "Trading Post">`);
 	newStr = newStr.replace('Population', `<img src = "${population}" alt = "Population">`);
-	newStr = newStr.replace('Relic', `<img src = "${relic}" alt = "Relic">`);
+    newStr = newStr.replace(/Relics?/g, `<img src = "${relic}" alt = "Relic" title = "Relic">`);
+    newStr = newStr.replace(/Artifacts?/g, `<img src = "${artifact}" alt = "Relic" title = "Artifact">`);
+    newStr = newStr.replace(/Sculptures?/g, `<img src = "${sculpture}" alt = "Relic" title = "Sculpture">`);
+    newStr = newStr.replace(/Portraits?/g, `<img src = "${portrait}" alt = "Relic" title = "Portrait">`);
 	newStr = newStr.replace('Diplomatic Favor', `<img src = "${favor}" alt = "Diplomatic Favor">`);
-	newStr = newStr.replace(/Eurekas?/g, `<img src = "${eureka}" alt = "Eureka">`);
-	newStr = newStr.replace(/Inspirations?/g, `<img src = "${inspiration}" alt = "Inspiration">`);
+	newStr = newStr.replace('Eureka', `<img src = "${eureka}" alt = "Eureka">Eureka`);
+	newStr = newStr.replace('Inspirations', `<img src = "${inspiration}" alt = "Inspiration">Inspiration`);
 	newStr = newStr.replace(/Envoys?/g, `<img src = "${envoy}" alt = "Envoy">`);
 	newStr = newStr.replace('Power', (substring, args) => {
 		return newStr.slice(args, args + 7) === 'Powered' ? substring : `<img src = "${power}" alt = "Power">`;
