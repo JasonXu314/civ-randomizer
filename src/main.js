@@ -47,8 +47,7 @@ $.getJSON('https://civ-randomizer-backend.herokuapp.com/').then((res) => {
 $('button#randomize-button').click(() => {
 	$('.hovered').removeClass('hovered');
 	const choice = Math.floor(Math.random() * civs.length);
-	iterateRandom(choice);
-	$.getJSON(`https://civ-randomizer-backend.herokuapp.com/?civ=${civs[choice]}`).then((civ) => {
+	Promise.all([iterateRandom(choice), $.getJSON(`https://civ-randomizer-backend.herokuapp.com/?civ=${civs[choice]}`)]).then(([_, civ]) => {
 		$('#chosen-civ').children().remove();
 		civ.leader = civ.leader[Math.floor(Math.random() * civ.leader.length)];
 		$(`
@@ -73,7 +72,7 @@ $('button#randomize-button').click(() => {
 });
 
 async function iterateRandom(idx) {
-	return new Promise(async (resolve, reject) => {
+	return new Promise(async (resolve) => {
 		for (let i = 0; i < civs.length * 2; i++) {
 			$('li.civ').filter((_, elem) => elem.querySelector('div h3').textContent === civs[i % civs.length])
 				.toggleClass('hovered');
@@ -97,6 +96,7 @@ async function iterateRandom(idx) {
 		}
 		$('li.civ').filter((_, elem) => elem.querySelector('div h3').textContent === civs[idx])
 			.toggleClass('hovered');
+		resolve();
 	});
 }
 
