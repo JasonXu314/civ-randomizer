@@ -39,10 +39,10 @@ const uranium = 'https://vignette.wikia.nocookie.net/civilization/images/a/a5/Ur
 // Great People
 const general = 'https://vignette.wikia.nocookie.net/civilization/images/f/fd/General6.png/';
 const admiral = 'https://vignette.wikia.nocookie.net/civilization/images/1/1a/Admiral6.png/';
-const engineer =  'https://vignette.wikia.nocookie.net/civilization/images/8/8b/Engineer6.png/';
-const writer =  'https://vignette.wikia.nocookie.net/civilization/images/3/3f/Writer6.png/';
-const musician =  'https://vignette.wikia.nocookie.net/civilization/images/0/00/Musician6.png/';
-const scientist =  'https://vignette.wikia.nocookie.net/civilization/images/8/84/Scientist6.png/';
+const engineer = 'https://vignette.wikia.nocookie.net/civilization/images/8/8b/Engineer6.png/';
+const writer = 'https://vignette.wikia.nocookie.net/civilization/images/3/3f/Writer6.png/';
+const musician = 'https://vignette.wikia.nocookie.net/civilization/images/0/00/Musician6.png/';
+const scientist = 'https://vignette.wikia.nocookie.net/civilization/images/8/84/Scientist6.png/';
 const prophet = 'https://vignette.wikia.nocookie.net/civilization/images/d/d3/Prophet6.png/';
 const artist = 'https://vignette.wikia.nocookie.net/civilization/images/7/75/Artist6.png/';
 const merchant = 'https://vignette.wikia.nocookie.net/civilization/images/4/45/Merchant6.png/';
@@ -84,7 +84,7 @@ export default function iconify(str) {
 	newStr = newStr.replace(/Great Engineer Points?/g, `<img src = "${engineer}" alt = "Great Engineer Point" title = "Great Engineer">`);
 	newStr = newStr.replace(/Great Writer Points?/g, `<img src = "${writer}" alt = "Great Writer Point" title = "Great Writer">`);
 	newStr = newStr.replace(/Great Musician Points?/g, `<img src = "${musician}" alt = "Great Musician Point" title = "Great Musician">`);
-	newStr = newStr.replace(/Great Scientist Points?/g, `<img src = "${scientist}" alt = "Great Scientist Point" title = "Great Scientist>`);
+	newStr = newStr.replace(/Great Scientist Points?/g, `<img src = "${scientist}" alt = "Great Scientist Point" title = "Great Scientist">`);
 	newStr = newStr.replace(/Great Prophet Points?/g, `<img src = "${prophet}" alt = "Great Prophet Point" title = "Great Prophet">`);
 	newStr = newStr.replace(/Great Artist Points?/g, `<img src = "${artist}" alt = "Great Artist Point" title = "Great Artist">`);
 	newStr = newStr.replace(/Great Merchant Points?/g, `<img src = "${merchant}" alt = "Great Merchant Point" title = "Great Merchant">`);
@@ -105,10 +105,10 @@ export default function iconify(str) {
 	newStr = newStr.replace('Diplomatic Visibility', `<img src = "${visibility}" alt = "Diplomatic Visibility" title = "Diplomatic Visibility">`);
 	newStr = newStr.replace('Trading Post', `<img src = "${tradePost}" alt = "Trading Post">`);
 	newStr = newStr.replace('Population', `<img src = "${population}" alt = "Population">`);
-    newStr = newStr.replace(/Relics?/g, `<img src = "${relic}" alt = "Relic" title = "Relic">`);
-    newStr = newStr.replace(/Artifacts?/g, `<img src = "${artifact}" alt = "Relic" title = "Artifact">`);
-    newStr = newStr.replace(/Sculptures?/g, `<img src = "${sculpture}" alt = "Relic" title = "Sculpture">`);
-    newStr = newStr.replace(/Portraits?/g, `<img src = "${portrait}" alt = "Relic" title = "Portrait">`);
+	newStr = newStr.replace(/Relics?/g, `<img src = "${relic}" alt = "Relic" title = "Relic">`);
+	newStr = newStr.replace(/Artifacts?/g, `<img src = "${artifact}" alt = "Relic" title = "Artifact">`);
+	newStr = newStr.replace(/Sculptures?/g, `<img src = "${sculpture}" alt = "Relic" title = "Sculpture">`);
+	newStr = newStr.replace(/Portraits?/g, `<img src = "${portrait}" alt = "Relic" title = "Portrait">`);
 	newStr = newStr.replace('Diplomatic Favor', `<img src = "${favor}" alt = "Diplomatic Favor">`);
 	newStr = newStr.replace('Eureka', `<img src = "${eureka}" alt = "Eureka">Eureka`);
 	newStr = newStr.replace('Inspirations', `<img src = "${inspiration}" alt = "Inspiration">Inspiration`);
